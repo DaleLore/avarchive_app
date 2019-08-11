@@ -1,0 +1,139 @@
+.header{
+  background-color: grey;
+  padding: 1vw;
+  width: 100%;
+  display: flex;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+nav{
+   background-color: #eee;
+   width: 100%;
+   display: flex;
+   justify-content: space-around;
+   padding: 1vw;
+   color: black;
+   a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  height: 60%;
+  margin: 5% auto;
+  border-radius: 40px;
+  background-color: #eee;
+  padding: 2vw;
+
+  input[type="text"],
+  input[type="password"] {
+    width: 80%;
+    padding: 1vw;
+    margin: 1vw;
+    border: 0;
+    &:focus {
+      outline: 0;
+    }
+  }
+  input[type="submit"] {
+    margin: 1vw;
+    padding: 1vw;
+  }
+}
+
+//WITHIN PROFILE
+.page-container {
+  display: grid;
+  grid-template-columns: 3fr 5fr;
+  border: 1px solid black;
+  padding: 1vw;
+}
+
+.side-panel {
+  border: 1px solid darkgrey;
+  background: darkgrey;
+}
+
+.show-panel{
+  border: 1px solid grey;
+  background: grey;
+}
+//END OF WITHIN PROFILE
+
+
+//WITHIN COLLECTION CONTAINER
+.collection-container {
+
+}
+
+.collection-search {
+
+}
+
+.add-collection-form{
+
+  h5{
+    color: black;
+  }
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  background-color: #eee;
+
+  input[type="text"],
+  input[type="password"] {
+    width: 30%;
+    padding: 0.5vw;
+    &:focus {
+      outline: 0;
+    }
+  }
+  input[type="submit"] {
+    margin: 1vw;
+    padding: 1vw;
+  }
+}
+
+.collections {
+
+}
+//END OF WITHIN COLLECTION CONTAINER
+
+//WITHIN ITEM CONTAINER
+.add-item-form{
+
+    h5{
+      color: black;
+    }
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    background-color: #eee;
+
+    input[type="text"],
+    input[type="password"] {
+      width: 30%;
+      padding: 0.5vw;
+      &:focus {
+        outline: 0;
+      }
+    }
+    input[type="submit"] {
+      margin: 1vw;
+      padding: 1vw;
+    }
+}
+//END OF WITHIN ITEM CONTAINER
