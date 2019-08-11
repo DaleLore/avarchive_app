@@ -13,18 +13,19 @@ handleChange = (e) => {
 
 handleSubmit = (e) => {
     e.preventDefault()
+
     fetch('http://localhost:3000/login', {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type':'application/json',
-        'Accept':'application/json'
+        'Content-Type': 'application/json',
+        'Accept': 'accplication/json'
       },
       body: JSON.stringify(this.state)
     })
-    .then(res => res.json())
-    .then(data =>{
-      if (data.token)  {
-        localStorage.token = data.token
+    .then(response => response.json())
+    .then(loginData => {
+      if (loginData.token){
+        localStorage.token = loginData.token
         this.props.redirect('profile')
       }
     })
