@@ -1,62 +1,46 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
-
-// import Routes from "./Routes";
+import Routes from "./Routes";
 
 import Header from "./Components/Header";
 import Nav from "./Components/Nav";
 import './Stylesheets/style.scss'
 
-//DELETE LATER
-import Login from "./Pages/Login";
-import Signup from "./Pages/Signup";
-import Profile from "./Pages/Profile";
-import Home from "./Pages/Home";
-
-
 class App extends Component {
 
   state = {
-    page: 'login'
-  }
-
-  redirect = (page) => {
-    this.setState({ page: page })
+    username: ''
   }
 
   componentDidMount(){
     if(localStorage.token){
-      this.redirect('profile')
+      // fetch('http://localhost:3000/profile', {
+      //   headers: {
+      //     Authorization: localStorage.token
+      //   }
+      // })
+      //   .then(response => response.json())
+      //   .then(profileData => {
+      //     this.setState({ username: profileData.username})
+      //   })
     }
   }
 
   render() {
-      switch(this.state.page){
-        case 'login':
-          return <Login redirect={this.redirect}/>
-        case 'signup':
-          return <Signup />
-        case 'profile':
-          return <Profile />
-        default:
-          return <Login />
-      }
+    return(
+      <Fragment>
+        <Router>
+          <Header />
+          <Nav />
+
+          <div className="main">
+            <Routes />
+          </div>
+
+        </Router>
+      </Fragment>
+    )
   }
 }
 
 export default App;
-
-
-// return(
-//   <Fragment>
-//     <Router>
-//       <Header />
-//       <Nav />
-//
-//       <div className="main">
-//
-//       </div>
-//
-//     </Router>
-//   </Fragment>
-// )

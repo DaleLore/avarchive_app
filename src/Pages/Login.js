@@ -26,12 +26,13 @@ handleSubmit = (e) => {
     .then(loginData => {
       if (loginData.token){
         localStorage.token = loginData.token
-        this.props.redirect('profile')
+        this.props.history.push('/profile')
       }
     })
   }
 
   render() {
+    console.log("from login", this.props)
     return (
       <form className="auth-form" onSubmit={this.handleSubmit}>
         <h5>Hello from Login.js</h5>
