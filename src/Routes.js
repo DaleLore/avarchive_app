@@ -4,7 +4,6 @@ import Pages from "./Pages"
 
 
 const Routes = (props) => {
-  console.log("from routes", props)
   return (
     <Switch>
       <Route path="/login" component={Pages.Login} />
