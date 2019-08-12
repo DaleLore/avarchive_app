@@ -18,7 +18,7 @@ handleSubmit = (e) => {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'accplication/json'
+        'Accept': 'application/json'
       },
       body: JSON.stringify(this.state)
     })
