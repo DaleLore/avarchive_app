@@ -38,12 +38,7 @@ export const userLogin = (userInfo) => {
   }
 }
 
-const loginUser = (userObj) => ({
-  type: 'LOGIN_USER',
-  payload: userObj
-})
-
-
+//TO PERSIST USER
 export const fetchUserProfile = () => {
   return dispatch => {
     return fetch('http://localhost:3000/profile', {
@@ -57,13 +52,17 @@ export const fetchUserProfile = () => {
         if (profileData.message){
           localStorage.removeItem(localStorage.token)
         } else {
-
           dispatch(loginUser(profileData))
-        }
-      })
+      }
+    })
   }
 }
 
+const loginUser = (userObj) => ({
+  type: 'LOGIN_USER',
+  payload: userObj
+})
+
 export const logoutUser = () => ({
-    type: "LOG_OUT"
+    type: "LOGOUT_USER"
 })

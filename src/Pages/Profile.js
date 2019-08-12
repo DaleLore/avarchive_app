@@ -22,7 +22,6 @@ class Profile extends Component {
       <div className="profile">
         <h1>Welcome, {this.props.profile.username}!</h1>
         <h5>Hello from Profile.js</h5>
-        <p> I want Login link to toggle into profile link once logged in</p>
 
         <div className="page-container">
 
@@ -41,7 +40,7 @@ class Profile extends Component {
 }
 
 const mapStateToProps= state => ({
-  profile: state.user.currentUser
+  profile: state.user
 });
 
 const mapDispatchToProps = dispatch => ({

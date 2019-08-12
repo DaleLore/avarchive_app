@@ -13,11 +13,11 @@ handleClick = (e) => {
   render() {
     return (
       <nav>
-        <Link to="/">About</Link>
-        <Link to="/signup">Signup</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/profile">Profile</Link>
-        <button onClick={this.handleClick}><Link to="/">Logout</Link></button>
+        <div id="nav-item"><Link to="/">About</Link></div>
+        <div id="nav-item"><Link to="/signup">Signup</Link></div>
+        <div id="nav-item"><Link to="/login">Login</Link></div>
+        <div id="nav-item"><Link to="/profile">Profile</Link></div>
+        <div id="nav-item"onClick={this.handleClick}><Link to="/">Logout</Link></div>
       </nav>
     );
   }
@@ -29,3 +29,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(null, mapDispatchToProps)(Nav);
+
+
+//Checkout componentWillReceiveProps
+//<div>{localStorage.token ? <Link to="/profile">Profile</Link> : null }</div>

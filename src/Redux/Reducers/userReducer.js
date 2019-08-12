@@ -1,16 +1,12 @@
-let initialState = {
-  currentUser: {}
-}
 
-
-export default function userReducer(state= initialState, action){
+export default function userReducer(state={}, action){
   switch(action.type){
     case 'LOGIN_USER':
       let userObj = action.payload
-      return {...state, currentUser: userObj}
+      return action.payload
 
-    case 'LOG_OUT':
-      return {...state, currentUser: {}}
+    case 'LOGOUT_USER':
+      return {}
 
     default:
       return state;

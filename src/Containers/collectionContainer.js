@@ -3,11 +3,14 @@ import Search from '../Components/Search'
 import CollectionForm from '../Components/CollectionForm'
 import Collection from '../Components/Collection'
 
+import { connect } from 'react-redux'
+
 
 
 class CollectionContainer extends Component {
 
   render() {
+    console.log("collection", this.props)
     return (
       <div className="collection-container">
         <h5>Hello from Collection Container </h5>
@@ -26,7 +29,10 @@ class CollectionContainer extends Component {
       </div>
     );
   }
-
 }
 
-export default CollectionContainer;
+const mapStateToProps= state => ({
+  collections: state.user.collections
+});
+
+export default connect(mapStateToProps, null)(CollectionContainer);
