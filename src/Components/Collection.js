@@ -1,12 +1,22 @@
 import React from "react";
+import { connect } from 'react-redux'
+import { selectUserCollection } from '../Redux/Actions/collectionActions'
+
 
 const Collection = (props) => {
-  console.log(props)
+
+
   return (
-    <div className="side-li">
+    <div className="side-li" onClick={() => props.selectUserCollection(props.collection.id)}>
       {props.collection.collection_name}
     </div>
   )
 }
 
-export default Collection;
+const mapDispatchToProps = dispatch => {
+   return {
+     selectUserCollection: (collectionId) => dispatch(selectUserCollection(collectionId))
+   }
+}
+
+export default connect(null, mapDispatchToProps)(Collection);

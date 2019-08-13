@@ -1,10 +1,10 @@
 import React from "react";
 
 const Item = (props) => {
+  console.log(props)
   return (
     <div>
-      Hello I am an item component
-      <p>I'd like for this to be the transaction layout</p>
+      {props.item.title} : {props.item.media_type}
     </div>
   )
 }
