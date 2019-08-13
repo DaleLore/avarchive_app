@@ -137,3 +137,20 @@ nav{
     }
 }
 //END OF WITHIN ITEM CONTAINER
+
+.side-li{
+  background: grey;
+  text-align: center;
+  padding: 2vw 0;
+  max-width: 100%;
+  transition: 0.5s;
+  border-bottom: 1px solid #262626;
+  cursor: pointer;
+  &:hover {
+    background-color: #262626;
+    color: white;
+  }
+}
+
+
+//CSS is all Mazen. Thanks Mazen

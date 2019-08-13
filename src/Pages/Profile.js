@@ -17,7 +17,6 @@ class Profile extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="profile">
         <h1>Welcome, {this.props.profile.username}!</h1>
@@ -40,7 +39,7 @@ class Profile extends Component {
 }
 
 const mapStateToProps= state => ({
-  profile: state.user
+  profile: state.userInfo
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -6,14 +6,26 @@ import Collection from '../Components/Collection'
 import { connect } from 'react-redux'
 
 
-
 class CollectionContainer extends Component {
 
+
   render() {
-    console.log("collection", this.props)
+
+    let renderCollection = () => {
+      if (this.props.collections){
+        return this.props.collections.map((collection) => {
+            return <Collection collection={collection} key={collection.id}/>
+        })
+      } else {
+        return null
+      }
+    }
+
+    console.log(this.props)
     return (
       <div className="collection-container">
         <h5>Hello from Collection Container </h5>
+
 <hr/>
           <div className="collection-search">
             <Search />
@@ -24,15 +36,17 @@ class CollectionContainer extends Component {
           </div>
 <hr/>
           <div className="collections">
-            <Collection />
+            {renderCollection()}
           </div>
       </div>
     );
   }
 }
 
-const mapStateToProps= state => ({
-  collections: state.user.collections
-});
+const mapStateToProps= state => {
+  return {
+    collections: state.userInfo.collections
+  }
+};
 
 export default connect(mapStateToProps, null)(CollectionContainer);

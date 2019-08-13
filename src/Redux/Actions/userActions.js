@@ -13,7 +13,7 @@ export const userSignUp = (newUserInfo) => {
     .then(response => response.json())
     .then(userData =>{
       // console.log("from userActions", userData)
-        if (userData.token){ localStorage.token = userData.token }
+        if (!userData.error){ localStorage.token = userData.token }
         dispatch(loginUser(userData.user))
     })
   }
@@ -32,7 +32,7 @@ export const userLogin = (userInfo) => {
     })
       .then(response => response.json())
       .then(userData => {
-        if (userData.token){ localStorage.token = userData.token }
+        if (!userData.error){ localStorage.token = userData.token }
         dispatch(loginUser(userData.user))
     })
   }
@@ -58,7 +58,7 @@ export const fetchUserProfile = () => {
   }
 }
 
-const loginUser = (userObj) => ({
+export const loginUser = (userObj) => ({
   type: 'LOGIN_USER',
   payload: userObj
 })
