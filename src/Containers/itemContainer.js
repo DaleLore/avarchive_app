@@ -4,11 +4,14 @@ import ItemForm from '../Components/ItemForm'
 import Item from '../Components/Item'
 
 import { connect } from 'react-redux'
-// import { fetchCollections } from '../Redux/Actions/collectionActions'
+import { fetchCollections } from '../Redux/Actions/collectionActions'
 
 
 class ItemContainer extends Component {
 
+  componentDidMount(){
+    this.props.fetchCollections()
+  }
 
 
   render() {
@@ -23,6 +26,7 @@ class ItemContainer extends Component {
       <div>
         <h5>Collection Title: {this.props.collection.collection_name}</h5>
         <h5>Collection Description: {this.props.collection.description}</h5>
+        <h5>Total Items in collection: {this.props.collection.count}</h5>
 
   <hr/>
         <div className="search">
@@ -46,4 +50,4 @@ const mapStateToProps= state => ({
   collection: state.collectionStore.userCollection
 });
 
-export default connect(mapStateToProps, null)(ItemContainer);
+export default connect(mapStateToProps, {fetchCollections})(ItemContainer);

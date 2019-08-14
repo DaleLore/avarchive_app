@@ -1,18 +1,10 @@
-
-// export const fetchCollections = () => {
-//   return (dispatch) => {
-//     fetch('http://localhost:3000/collections/')
-//       .then(response => response.json())
-//       .then(collections => dispatch(saveCollectionsToState(collections)))
-//   }
-// }
-
-// export const saveCollectionsToState = (collections) => {
-//   return {
-//     type: "SAVE_COLLECTIONS_TO_STATE",
-//     payload: collections
-//   }
-// }
+export const fetchCollections = () => dispatch => {
+  return fetch('http://localhost:3000/collections')
+    .then(response => response.json())
+    .then(collections => {
+      dispatch({ type: "FETCH_COLLECTIONS", payload: collections })
+    })
+}
 
 export const selectUserCollection = (collectionId) => dispatch => {
   let id = collectionId
@@ -22,4 +14,12 @@ export const selectUserCollection = (collectionId) => dispatch => {
       // console.log(collectionObject)
       dispatch({ type: "CURRENT_COLLECTION", payload: collectionObject})
   })
+}
+
+export const deleteCollection = (collectionObject) => dispatch => {
+  let id = collectionObject.id
+  return fetch(`http://localhost:3000/collections/${id}`, {
+    method: "DELETE"
+  })
+    .then(() => dispatch({ type: "DELETE_COLLECTION", payload: id}))
 }
