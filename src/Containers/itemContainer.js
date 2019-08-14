@@ -15,18 +15,20 @@ class ItemContainer extends Component {
 
 
   render() {
+    const { collection } = this.props
+
     let renderItems = () => {
-      if (this.props.collection.items){
-        return this.props.collection.items.map((item) => {
+      if (collection.items){
+        return collection.items.map((item) => {
           return <Item item={item} key={item.id}/>
         })
       }
     }
     return (
-      <div>
-        <h5>Collection Title: {this.props.collection.collection_name}</h5>
-        <h5>Collection Description: {this.props.collection.description}</h5>
-        <h5>Total Items in collection: {this.props.collection.count}</h5>
+      <div className="item-container">
+        <h5>Collection Title: {collection.collection_name}</h5>
+        <h5>Collection Description: {collection.description}</h5>
+        <h5>Total Items in collection: {collection.count}</h5>
 
   <hr/>
         <div className="search">

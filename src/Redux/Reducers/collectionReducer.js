@@ -11,8 +11,10 @@ export default function collectionReducer(state= initialState, action){
     //   return {...state, collections: action.payload}
 
     case "CURRENT_COLLECTION":
-      // console.log("collectionReducer: collectionObj", action.payload);
       return {...state, userCollection: action.payload}
+
+    case "ADD_COLLECTION":
+      return { ...state, collections: action.payload }
 
     case "DELETE_COLLECTION":
       const collectionObject = action.payload

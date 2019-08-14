@@ -16,6 +16,26 @@ export const selectUserCollection = (collectionId) => dispatch => {
   })
 }
 
+export const addNewCollection = (newCollectionObject) => dispatch => {
+  
+  return fetch('http://localhost:3000/collections', {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+      collection_name: newCollectionObject.newUser.collection_name,
+      description: newCollectionObject.newUser.description,
+      user_id: newCollectionObject.userId
+    })
+  })
+  .then(response => response.json())
+  .then(newCollectionObj => {
+    dispatch({ type: "ADD_COLLECTION", payload: newCollectionObj})
+  })
+}
+
 export const deleteCollection = (collectionObject) => dispatch => {
   let id = collectionObject.id
   return fetch(`http://localhost:3000/collections/${id}`, {

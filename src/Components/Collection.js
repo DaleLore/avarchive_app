@@ -10,6 +10,8 @@ const Collection = (props) => {
   return (
     <div className="side-li" onClick={() => props.selectUserCollection(props.collection.id)}>
       {props.collection.collection_name}
+    
+      <button > Update </button>
       <button onClick={() => props.deleteCollection(props.collection)}> X </button>
     </div>
   )

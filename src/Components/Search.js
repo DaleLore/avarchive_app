@@ -1,11 +1,17 @@
-import React from "react";
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
-const Search = (props) => {
-  return (
-      <div>
-        <input type="search" placeholder="Search "/>
-      </div>
-    )
-  };
+class Search extends Component {
 
-export default Search;
+state = {
+  searchTerm: ""
+}
+  render() {
+    return (
+      <div></div>
+    );
+  }
+
+}
+
+export default connect()(Search);
