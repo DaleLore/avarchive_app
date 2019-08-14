@@ -4,8 +4,13 @@ import CollectionForm from '../Components/CollectionForm'
 import Collection from '../Components/Collection'
 
 import { connect } from 'react-redux'
+import { fetchCollections } from '../Redux/Actions/collectionActions'
 
 class CollectionContainer extends Component {
+
+  componentDidMount(){
+    this.props.fetchCollections()
+  }
 
   render() {
 
@@ -48,4 +53,4 @@ const mapStateToProps= state => {
 
 
 
-export default connect(mapStateToProps, null)(CollectionContainer);
+export default connect(mapStateToProps, {fetchCollections})(CollectionContainer);

@@ -1,18 +1,47 @@
-import React from "react";
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { addNewItem } from '../Redux/Actions/itemActions'
+import { selectUserCollection } from '../Redux/Actions/collectionActions'
 
-const ItemForm = (props) => {
-  return (
-      <form>
+class ItemForm extends Component {
+
+  state = {
+    title: "",
+    media_type: "",
+  }
+
+handleSubmit = (e) => {
+  e.preventDefault()
+  this.props.addNewItem(this.state)
+}
+
+handleChange = (e) => {
+  this.setState({ value: e.target.value})
+}
+  render() {
+    console.log(this.props.selectUserCollection)
+    return (
+      <form onSubmit={this.handleSubmit}>
         <center><h5>Add a new item to your collection</h5></center>
         <input type="text" name="collection_name" placeholder="Title"/>
         <select name="media_type">
-            <option value="Audio"> Audio </option>
-            <option value="Film"> Film </option>
-            <option value="Video"> Video </option>
+            <option value="audio"> Audio </option>
+            <option value="film"> Film </option>
+            <option value="video"> Video </option>
         </select>
         <input type="submit" value="Add Item"/>
       </form>
-    )
-  };
+    );
+  }
+}
+const mapStateToProps= state => ({
+  selectUserCollection: state.userInfo
+});
 
-export default ItemForm;
+const mapDispatchToProps = dispatch => {
+   return {
+     addNewItem: () => dispatch(addNewItem()),
+   }
+}
+
+export default connect(null, mapDispatchToProps)(ItemForm);

@@ -26,7 +26,6 @@ handleSubmit = (e) => {
 }
 
   render() {
-    console.log(this.state)
     return (
       <form onSubmit={this.handleSubmit}>
         <center><h5>Create a new collection</h5></center>
