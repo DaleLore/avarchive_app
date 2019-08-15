@@ -17,7 +17,7 @@ render() {
           <div>
             <Link style={{marginLeft: 15}} to="/">About</Link>
             <Link style={{marginLeft: 15}} to="/profile">Profile</Link>
-            <button onClick={this.onLogout}>Logout</button>
+            <Link style={{marginLeft: 15}} to="/" onClick={this.onLogout}>Logout</Link>
           </div>
         ) : (
           <div>
