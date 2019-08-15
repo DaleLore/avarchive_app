@@ -36,11 +36,6 @@ renderItems = () => {
         <h5>Total Items in collection: {this.props.userCollection ? this.props.userCollection.count : null}</h5>
         <h5>Stretch Goal: Export as CSV</h5>
 
-
-  <hr/>
-        <div className="search">
-          <Search />
-        </div>
   <hr/>
         <div className="add-item-form">
         {this.findCollectionItems() ? <ItemForm /> : null}

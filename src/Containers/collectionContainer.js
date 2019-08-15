@@ -8,9 +8,24 @@ import { fetchCollections } from '../Redux/Actions/collectionActions'
 
 class CollectionContainer extends Component {
 
+  state = {
+    collections: [],
+    searchTerm: ""
+  }
+
   componentDidMount(){
     this.props.fetchCollections()
   }
+
+handleSearchChange = (e) => {
+  this.setState({ searchTerm: e})
+}
+
+searchCollections = () => {
+  return this.state.collections.filter(collection => {
+    return collection.collection_name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
+  })
+}
 
   render() {
 
@@ -30,7 +45,7 @@ class CollectionContainer extends Component {
 
 <hr/>
           <div className="collection-search">
-            <Search />
+            <Search searchTerm={this.state.searchTerm} inputTerm={this.handleSearchChange}/>
           </div>
 <hr/>
           <div className="add-collection-form">

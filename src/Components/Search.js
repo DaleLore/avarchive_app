@@ -1,19 +1,18 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import React from 'react'
 
-class Search extends Component {
+const Search = (props) => {
+  console.log(props)
+  return (
+    <div className="ui huge fluid icon input">
+      <input
+        type="text"
+        placeholder={"Search"}
+        onChange={(e) => props.inputTerm(e.target.value)}
+        value={props.searchTerm}/>
 
-state = {
-  searchTerm: ""
+      <i className="circular search link icon"></i>
+    </div>
+  )
 }
-  render() {
-    return (
-      <div>
-        <input type="search"/>
-      </div>
-    );
-  }
 
-}
-
-export default connect()(Search);
+export default Search
