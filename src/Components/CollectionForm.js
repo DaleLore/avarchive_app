@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { addNewCollection } from '../Redux/Actions/collectionActions'
-import { fetchUserProfile } from '../Redux/Actions/userActions'
 
 class CollectionForm extends Component {
 
@@ -9,7 +8,6 @@ state={
   collection_name: "",
   description: "",
 }
-
 
 
 handleChange = (e) => {
@@ -53,10 +51,5 @@ const mapStateToProps= state => ({
   profile: state.userInfo
 });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchUserProfile: () => dispatch(fetchUserProfile()),
-    addNewCollection: (newCollectionObject) => dispatch(addNewCollection(newCollectionObject))
-}};
 
-export default connect(mapStateToProps, mapDispatchToProps)(CollectionForm);
+export default connect(mapStateToProps,{addNewCollection})(CollectionForm);

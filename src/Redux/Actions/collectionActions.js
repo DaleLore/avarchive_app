@@ -17,7 +17,6 @@ export const selectUserCollection = (collectionId) => dispatch => {
 }
 
 export const addNewCollection = (newCollectionObject) => dispatch => {
-  
   return fetch('http://localhost:3000/collections', {
     method: "POST",
     headers: {

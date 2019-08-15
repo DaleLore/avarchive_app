@@ -1,11 +1,20 @@
+let initialState = {
+  items: []
+}
 
-
-export default function itemReducer(state={}, action){
+export default function itemReducer(state=initialState, action){
   switch(action.type){
     //
+    case "FETCH_ITEMS":
+     return {...state, items: action.payload}
+
+     // case "CURRENT_COLLECTION":
+     //   return {...state, userCollection: action.payload}
+     //
     // case "ADD_ITEM":
-    //   return
-    //
+    // // debugger
+    //   return {...state, items: action.payload}
+    // //
     // case "UPDATE_ITEM":
     //   return
     //

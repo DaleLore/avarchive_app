@@ -10,9 +10,9 @@ export default function userReducer(state={}, action){
 
     case "ADD_COLLECTION":
     // debugger
-    const payload = action.payload
-      const updateUserCollection = {...state, collections: [...state.collections, payload]}
-      return updateUserCollection
+      const payload = action.payload
+      const addCollectionToUser = {...state, collections: [...state.collections, payload]}
+      return addCollectionToUser
 
 
     case "DELETE_COLLECTION":

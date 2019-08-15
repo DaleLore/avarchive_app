@@ -1,27 +1,34 @@
-import React from "react";
+import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { selectItem } from '../Redux/Actions/itemActions'
 import { deleteItem } from '../Redux/Actions/itemActions'
 
-const Item = (props) => {
-  // console.log(props)
+
+class Item extends Component {
+
+handleClick = (event) => {
+  console.log(event.target.id)
   // const handleClick = () => {
   //   if sidle
   //   elseif
   //   elseif
   // end
   // }
-
-  return (
-    <div className="side-li" onClick={() => props.selectItem()}>
-      {props.item.title} : {props.item.media_type}
-      <button className="update-button"> Update </button>
-      <button className="delete-button" onClick={() => props.deleteItem()}> X </button>
-
-
-    </div>
-  )
 }
+
+  render() {
+    return (
+
+      <div className="side-li" id="item" onClick={this.handleClick}>
+        {this.props.item.title} : {this.props.item.media_type}
+        <button id="update-button"> Update </button>
+        <button id="delete-button"> Delete </button>
+      </div>
+    );
+  }
+}
+
+
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -30,5 +37,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-
 export default connect(null, mapDispatchToProps)(Item);
+
+
+// <button id="update-button" onClick={this.handleClick}> Update </button>

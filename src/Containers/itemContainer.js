@@ -12,16 +12,32 @@ componentDidMount(){
   this.props.fetchItems()
 }
 
+//
+// let renderItems = () => {
+//   if (collection && collection.items){
+//     return collection.items.map((item) => {
+//       return <Item item={item} key={item.id}/>
+//     })
+//   }
+// }
+
+findUserItems = () => {
+  const id = this.props.user.id
+  console.log(this.props.collections)
+  if (this.props.collections){
+    return this.props.collections.filter(collection => collection.user_id === id)
+  }
+}
+
+renderItems = () => {
+  if (this.findUserItems()){
+    return this.findUserItems().map(item => <Item item={item} key={item.id}/>)
+  }
+}
+
   render() {
     const { collection } = this.props
 
-    let renderItems = () => {
-      if (collection && collection.items){
-        return collection.items.map((item) => {
-          return <Item item={item} key={item.id}/>
-        })
-      }
-    }
     return (
 
       <div className="item-container">
@@ -41,7 +57,7 @@ componentDidMount(){
         </div>
   <hr/>
         <div className="items">
-          {renderItems()}
+          {this.renderItems()}
         </div>
       </div>
     );
@@ -50,7 +66,9 @@ componentDidMount(){
 }
 
 const mapStateToProps= state => ({
-  collection: state.collectionStore.userCollection
+  collections: state.collectionStore.collections,
+  items: state.itemStore,
+  user: state.userInfo
 });
 
 export default connect(mapStateToProps, {fetchItems})(ItemContainer);
