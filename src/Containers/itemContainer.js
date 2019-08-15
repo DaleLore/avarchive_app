@@ -5,25 +5,36 @@ import Item from '../Components/Item'
 
 import { connect } from 'react-redux'
 import { fetchItems } from '../Redux/Actions/itemActions'
+import { fetchCollections } from '../Redux/Actions/collectionActions'
+
 
 class ItemContainer extends Component {
 
 componentDidMount(){
   this.props.fetchItems()
+  this.props.fetchCollections()
+}
+
+findCollectionItems = () => {
+  if(this.props.userCollection){
+    const collectionId = this.props.userCollection.id
+    console.log(this.props.items)
+    console.log(collectionId)
+
+    return this.props.items.filter(item => item.collection_id === collectionId)
+  }
+}
+
+renderItems = () => {
+  if(this.findCollectionItems()){
+    return this.findCollectionItems().map(item => <Item item={item} key={item.id}/>)
+  }
 }
 
   render() {
     const { collection } = this.props
 
-    let renderItems = () => {
-      if (collection && collection.items){
-        return collection.items.map((item) => {
-          return <Item item={item} key={item.id}/>
-        })
-      }
-    }
     return (
-
       <div className="item-container">
         <h5>Collection Title: {collection ? collection.collection_name : null} </h5>
         <h5>Collection Description: {collection ? collection.description : null}</h5>
@@ -37,11 +48,11 @@ componentDidMount(){
         </div>
   <hr/>
         <div className="add-item-form">
-        <ItemForm />
+        {this.findCollectionItems() ? <ItemForm /> : null}
         </div>
   <hr/>
         <div className="items">
-          {renderItems()}
+          {this.renderItems()}
         </div>
       </div>
     );
@@ -50,7 +61,10 @@ componentDidMount(){
 }
 
 const mapStateToProps= state => ({
-  collection: state.collectionStore.userCollection
+  collections: state.collectionStore.collections,
+  userCollection: state.collectionStore.userCollection,
+  items: state.itemStore.items,
+  user: state.userInfo
 });
 
-export default connect(mapStateToProps, {fetchItems})(ItemContainer);
+export default connect(mapStateToProps, {fetchItems, fetchCollections})(ItemContainer);
