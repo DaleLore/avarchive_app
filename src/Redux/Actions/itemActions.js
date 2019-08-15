@@ -29,6 +29,11 @@ export const selectItem = () => dispatch => {
   console.log('i click')
 }
 
-export const deleteItem = () => dispatch => {
-  console.log('i delete')
+export const deleteItem = (item) => dispatch => {
+  let id = item.id
+  return fetch(`http://localhost:3000/items/${id}`, {
+    method: "DELETE"
+  })
+    .then(() => dispatch({ type: "DELETE_ITEM", payload: id}))
+
 }

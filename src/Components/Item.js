@@ -17,13 +17,12 @@ handleClick = (event) => {
 }
 
   render() {
-    console.log(this.props)
     return (
 
-      <div className="side-li" id="item" onClick={this.handleClick}>
+      <div className="side-li" id="item">
         {this.props.item.title} : {this.props.item.media_type}
         <button id="update-button"> Update </button>
-        <button id="delete-button"> Delete </button>
+        <button id="delete-button" onClick={() => this.props.deleteItem(this.props.item)}> Delete </button>
       </div>
     );
   }
@@ -34,7 +33,7 @@ handleClick = (event) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     selectItem: () => dispatch(selectItem()),
-    deleteItem: () => dispatch(deleteItem())
+    deleteItem: (item) => dispatch(deleteItem(item))
   }
 };
 

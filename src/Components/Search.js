@@ -8,7 +8,9 @@ state = {
 }
   render() {
     return (
-      <div></div>
+      <div>
+        <input type="search"/>
+      </div>
     );
   }
 

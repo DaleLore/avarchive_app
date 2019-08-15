@@ -15,8 +15,12 @@ export default function itemReducer(state={}, action){
     // case "UPDATE_ITEM":
     //   return
     //
-    // case "DELETE_ITEM":
-    //   return
+    case "DELETE_ITEM":
+      // debugger
+      const itemObject = action.payload
+      const updatedItems = state.items.filter(item => item.id !== itemObject)
+      return {...state, items: updatedItems}
+
     //
     // case "SEARCH_ITEMS"
     //   return

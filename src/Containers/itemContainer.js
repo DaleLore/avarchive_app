@@ -18,9 +18,6 @@ componentDidMount(){
 findCollectionItems = () => {
   if(this.props.userCollection){
     const collectionId = this.props.userCollection.id
-    console.log(this.props.items)
-    console.log(collectionId)
-
     return this.props.items.filter(item => item.collection_id === collectionId)
   }
 }

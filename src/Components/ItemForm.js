@@ -4,6 +4,7 @@ import { addNewItem } from '../Redux/Actions/itemActions'
 import { Field, reduxForm } from 'redux-form';
 
 
+
 class ItemForm extends Component {
 
 submit = (values) => {
@@ -28,7 +29,7 @@ submit = (values) => {
           </Field>
         </div>
 
-        <button type="submit">Add item</button>
+        <button className="ui button" type="submit">Add item</button>
       </form>
     );
   }
