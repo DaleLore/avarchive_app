@@ -35,6 +35,10 @@ export const addNewCollection = (newCollectionObject) => dispatch => {
   })
 }
 
+export const updateCollection = () => dispatch => {
+  console.log('i click from update')
+}
+
 export const deleteCollection = (collectionObject) => dispatch => {
   let id = collectionObject.id
   return fetch(`http://localhost:3000/collections/${id}`, {

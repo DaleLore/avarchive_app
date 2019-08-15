@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import { logoutUser } from '../Redux/Actions/userActions'
@@ -11,20 +11,21 @@ onLogout = (e) => {
 }
 render() {
   return (
+
     <nav>
       {
         this.props.user.id ? (
-          <div>
+          <Fragment>
             <Link style={{marginLeft: 15}} to="/">About</Link>
             <Link style={{marginLeft: 15}} to="/profile">Profile</Link>
             <Link style={{marginLeft: 15}} to="/" onClick={this.onLogout}>Logout</Link>
-          </div>
+          </Fragment>
         ) : (
-          <div>
+          <Fragment>
             <Link style={{marginLeft: 15}} to="/">About</Link>
             <Link style={{marginLeft: 15}} to="/signup">Signup</Link>
             <Link style={{marginLeft: 15}} to="/login">Login</Link>
-          </div>
+          </Fragment>
         )
       }
     </nav>

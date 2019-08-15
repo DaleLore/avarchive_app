@@ -13,7 +13,8 @@ export default function itemReducer(state={}, action){
       return {...state, items: [...state.items, action.payload]}
     //
     // case "UPDATE_ITEM":
-    //   return
+    // MAP WITH A IF CONDITION COMPARING ID
+    //   return {..state, }
     //
     case "DELETE_ITEM":
       // debugger

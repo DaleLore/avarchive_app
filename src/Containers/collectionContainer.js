@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Search from '../Components/Search'
 import CollectionForm from '../Components/CollectionForm'
 import Collection from '../Components/Collection'
+// import UpdateCollectionModal from '../Components/Modal/udpateCollectionModal.js'
 
 import { connect } from 'react-redux'
 import { fetchCollections } from '../Redux/Actions/collectionActions'
@@ -9,7 +10,6 @@ import { fetchCollections } from '../Redux/Actions/collectionActions'
 class CollectionContainer extends Component {
 
   state = {
-    collections: [],
     searchTerm: ""
   }
 
@@ -22,16 +22,19 @@ handleSearchChange = (e) => {
 }
 
 searchCollections = () => {
-  return this.state.collections.filter(collection => {
-    return collection.collection_name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
-  })
+  if(this.props.usersCollections) {
+    return this.props.usersCollections.filter(collection => {
+      return collection.collection_name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
+    })
+  }
 }
 
   render() {
-
+    console.log(this.props.usersCollections);
+    console.log(this.searchCollections());
     let renderCollection = () => {
       if (this.props.usersCollections){
-        return this.props.usersCollections.map((collection) => {
+        return this.searchCollections().map((collection) => {
             return <Collection collection={collection} key={collection.id}/>
         })
       } else {
