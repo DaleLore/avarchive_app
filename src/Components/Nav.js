@@ -9,26 +9,37 @@ onLogout = (e) => {
   localStorage.removeItem("token")
   this.props.logoutUser()
 }
-  render() {
-    return (
-      <nav>
-        <div id="nav-item"><Link to="/">About</Link></div>
-        <div id="nav-item"><Link to="/signup">Signup</Link></div>
-        <div id="nav-item"><Link to="/login">Login</Link></div>
-        <div id="nav-item"><Link to="/profile">Profile</Link></div>
-        <div id="nav-item"onClick={this.onLogout}><Link to="/">Logout</Link></div>
-      </nav>
-    );
-  }
-
+render() {
+  return (
+    <nav>
+      {
+        this.props.user.id ? (
+          <div>
+            <Link style={{marginLeft: 15}} to="/">About</Link>
+            <Link style={{marginLeft: 15}} to="/profile">Profile</Link>
+            <button onClick={this.onLogout}>Logout</button>
+          </div>
+        ) : (
+          <div>
+            <Link style={{marginLeft: 15}} to="/">About</Link>
+            <Link style={{marginLeft: 15}} to="/signup">Signup</Link>
+            <Link style={{marginLeft: 15}} to="/login">Login</Link>
+          </div>
+        )
+      }
+    </nav>
+  )
 }
+}
+
+const mapStateToProps= state => {
+  return {
+    user: state.userInfo
+  }
+};
 
 const mapDispatchToProps = (dispatch) => ({
   logoutUser: () => dispatch(logoutUser())
 });
 
-export default connect(null, mapDispatchToProps)(Nav);
-
-
-//Checkout componentWillReceiveProps
-//<div>{localStorage.token ? <Link to="/profile">Profile</Link> : null }</div>
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);
