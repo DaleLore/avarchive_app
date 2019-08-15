@@ -29,6 +29,22 @@ export const selectItem = () => dispatch => {
   console.log('i click')
 }
 
+// export const updateItem = (item) => dispatch => {
+//   let id = item.id
+//   return fetch(`http://localhost:3000/items/${id}`, {
+//     method: "PATCH",
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'Accept': 'application/json'
+//     },
+//     body: JSON.stringify(item)
+//   })
+//     .then(response => response.json())
+//     .then(itemData => {
+//       dispatch({type: "UPDATE_ITEM", payload: itemData})
+//     })
+// }
+
 export const deleteItem = (item) => dispatch => {
   let id = item.id
   return fetch(`http://localhost:3000/items/${id}`, {

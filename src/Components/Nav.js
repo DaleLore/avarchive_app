@@ -5,8 +5,7 @@ import { logoutUser } from '../Redux/Actions/userActions'
 
 class Nav extends Component {
 
-handleClick = (e) => {
-  e.preventDefault();
+onLogout = (e) => {
   localStorage.removeItem("token")
   this.props.logoutUser()
 }
@@ -17,7 +16,7 @@ handleClick = (e) => {
         <div id="nav-item"><Link to="/signup">Signup</Link></div>
         <div id="nav-item"><Link to="/login">Login</Link></div>
         <div id="nav-item"><Link to="/profile">Profile</Link></div>
-        <div id="nav-item"onClick={this.handleClick}><Link to="/">Logout</Link></div>
+        <div id="nav-item"onClick={this.onLogout}><Link to="/">Logout</Link></div>
       </nav>
     );
   }
