@@ -17,6 +17,7 @@ handleClick = (event) => {
 }
 
   render() {
+    console.log(this.props)
     return (
 
       <div className="side-li" id="item" onClick={this.handleClick}>

@@ -18,12 +18,12 @@ export default function collectionReducer(state={}, action){
     //   const payload = action.payload
     //   return {items: [...state.userCollection.items, payload]};
 
-    case "ADD_ITEM":
-      // debugger
-      const payload = action.payload
-      const addItemToCollection = {...state, items: [...state.userCollection.items, payload]}
-      return addItemToCollection
-      //
+    // case "ADD_ITEM":
+    //   // debugger
+    //   const payload = action.payload
+    //   const addItemToCollection = {...state, items: [...state.userCollection.items, payload]}
+    //   return addItemToCollection
+    //   //
 
     case "DELETE_COLLECTION":
     // debugger

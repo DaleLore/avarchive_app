@@ -16,11 +16,11 @@ submit = (values) => {
       <form onSubmit={this.props.handleSubmit(this.submit)}>
         <div>
           <label>Title:</label>
-          <Field name="title" component="input" type="text"/>
+          <Field name="title" component="input" type="text" required/>
         </div>
         <div>
           <label>Media Type</label>
-          <Field name="media_type" component="select" type="text">
+          <Field name="media_type" component="select" type="text" required>
             <option></option>
             <option value="audio"> Audio </option>
             <option value="film"> Film </option>

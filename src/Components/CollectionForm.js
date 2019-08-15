@@ -32,7 +32,8 @@ handleSubmit = (e) => {
             name="collection_name"
             placeholder="Collection Name"
             value={this.state.collection_name}
-            onChange={this.handleChange}/>
+            onChange={this.handleChange}
+            required/>
 
           <textarea
             name="description"
