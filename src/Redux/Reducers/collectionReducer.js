@@ -9,6 +9,9 @@ export default function collectionReducer(state={}, action){
     case "CURRENT_COLLECTION":
       return {...state, userCollection: action.payload}
 
+    case "ADD_COLLECTION":
+      return {...state, collections: [...state.collections, action.payload]}
+
     case "DELETE_COLLECTION":
       const collectionObject = action.payload
       const updatedCollections = state.collections.filter(collection => collection.id !== collectionObject)

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { addNewCollection } from '../Redux/Actions/collectionActions'
+import { Button } from 'semantic-ui-react'
 
 class CollectionForm extends Component {
 
@@ -41,7 +42,7 @@ handleSubmit = (e) => {
             value={this.state.description}
             onChange={this.handleChange}/>
 
-          <input type="submit" value="Create"/>
+          <Button>Create</Button>
       </form>
 
     );

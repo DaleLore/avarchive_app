@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Search from '../Components/Search'
 import CollectionForm from '../Components/CollectionForm'
 import Collection from '../Components/Collection'
-// import UpdateCollectionModal from '../Components/Modal/udpateCollectionModal.js'
 
 import { connect } from 'react-redux'
 import { fetchCollections } from '../Redux/Actions/collectionActions'
@@ -13,34 +12,47 @@ class CollectionContainer extends Component {
     searchTerm: ""
   }
 
-  componentDidMount(){
-    this.props.fetchCollections()
-  }
+componentDidMount(){
+  this.props.fetchCollections()
+}
 
 handleSearchChange = (e) => {
   this.setState({ searchTerm: e})
 }
 
 searchCollections = () => {
-  if(this.props.usersCollections) {
-    return this.props.usersCollections.filter(collection => {
+  if(this.findUserCollections()) {
+    return this.props.collections.filter(collection => {
       return collection.collection_name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
     })
   }
 }
 
+findUserCollections = () => {
+  if(this.props.collections){
+    const userId = this.props.user.id
+    return this.props.collections.filter(collection => collection.user_id === userId)
+  }
+}
+
+renderCollections = () => {
+  if(this.findUserCollections()){
+    return this.findUserCollections().map(collection => <Collection collection={collection} key={collection.id}/>)
+  }
+}
   render() {
-    console.log(this.props.usersCollections);
-    console.log(this.searchCollections());
-    let renderCollection = () => {
-      if (this.props.usersCollections){
-        return this.searchCollections().map((collection) => {
-            return <Collection collection={collection} key={collection.id}/>
-        })
-      } else {
-        return null
-      }
-    }
+    console.log(this.props);
+    // console.log(this.props.usersCollections);
+    // console.log(this.searchCollections());
+    // let renderCollection = () => {
+    //   if (this.props.usersCollections){
+    //     return this.searchCollections().map((collection) => {
+    //         return <Collection collection={collection} key={collection.id}/>
+    //     })
+    //   } else {
+    //     return null
+    //   }
+    // }
 
     return (
       <div className="collection-container">
@@ -56,7 +68,7 @@ searchCollections = () => {
           </div>
 <hr/>
           <div className="collections">
-            {renderCollection()}
+            {this.renderCollections()}
           </div>
       </div>
     );
@@ -65,10 +77,13 @@ searchCollections = () => {
 
 const mapStateToProps= state => {
   return {
-    usersCollections: state.userInfo.collections
+    collections: state.collectionStore.collections,
+    user: state.userInfo
   }
 };
 
+const mapDispatchToProps = (dispatch) => ({
+  fetchCollections: () => dispatch(fetchCollections()),
+});
 
-
-export default connect(mapStateToProps, {fetchCollections})(CollectionContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(CollectionContainer);

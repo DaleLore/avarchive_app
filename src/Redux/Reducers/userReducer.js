@@ -8,11 +8,11 @@ export default function userReducer(state={}, action){
     case 'LOGOUT_USER':
       return {}
 
-    case "ADD_COLLECTION":
-    // debugger
-      const payload = action.payload
-      const addCollectionToUser = {...state, collections: [...state.collections, payload]}
-      return addCollectionToUser
+    // case "ADD_COLLECTION":
+    // // debugger
+    //   const payload = action.payload
+    //   const addCollectionToUser = {...state, collections: [...state.collections, payload]}
+    //   return addCollectionToUser
 
 
     case "DELETE_COLLECTION":
