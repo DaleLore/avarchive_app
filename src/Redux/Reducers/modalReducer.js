@@ -6,9 +6,10 @@ const intialState = {
 export default function modalReducer(state=intialState, action){
   switch(action.type){
 
-  case "MODAL_TOGGLE":
+  case "MODAL_CLOSE":
+    return {updateCollection: !state.updateCollection};
 
-    default:
-      return state;
+  default:
+    return state;
   }
 }
