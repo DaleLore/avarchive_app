@@ -3,10 +3,14 @@ import CollectionModal from './CollectionModal'
 import { connect } from 'react-redux'
 import { selectUserCollection } from '../Redux/Actions/collectionActions'
 import { deleteCollection } from '../Redux/Actions/collectionActions'
-import { updateCollection } from '../Redux/Actions/modalActions'
+// import { updateCollection } from '../Redux/Actions/modalActions'
 import { Button, Header, Image, Modal } from 'semantic-ui-react'
 
 class Collection extends Component {
+
+  state = {
+    toggleForm: false
+  }
 
 
 handleClick = (e) => {
@@ -19,17 +23,26 @@ handleClick = (e) => {
   }
 }
 
+toggleForm = () => {
+  this.setState({
+    toggleForm: !this.state.toggleForm
+  })
+}
+
   render() {
     return (
 
       <div className="side-li" id="select-collection" onClick={this.handleClick}>
         <h3>{this.props.collection.collection_name}</h3>
 
-        <Modal trigger={<Button id="update-collection">Update</Button>}>
+        <Modal trigger={<Button onClick={this.toggleForm} id="update-collection">Update</Button>}
+          open={this.state.toggleForm}
+          onClose={this.toggleForm}
+        >
           <Modal.Header>Update Collection</Modal.Header>
-            <CollectionModal />
+            <CollectionModal toggleForm={this.toggleForm} userCollection={this.props.collection}/>
         </Modal>
-        
+
         <Button id="delete-collection" > X </Button>
       </div>
     )
@@ -39,7 +52,7 @@ handleClick = (e) => {
 const mapDispatchToProps = dispatch => {
    return {
      selectUserCollection: (collectionId) => dispatch(selectUserCollection(collectionId)),
-     updateCollection: (collectionObject) => dispatch(updateCollection(collectionObject)),
+     // updateCollection: (collectionObject) => dispatch(updateCollection(collectionObject)),
      deleteCollection: (collectionObject) => dispatch(deleteCollection(collectionObject))
    }
 }
