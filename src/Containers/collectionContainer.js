@@ -41,19 +41,6 @@ renderCollections = () => {
   }
 }
   render() {
-    console.log(this.props);
-    // console.log(this.props.usersCollections);
-    // console.log(this.searchCollections());
-    // let renderCollection = () => {
-    //   if (this.props.usersCollections){
-    //     return this.searchCollections().map((collection) => {
-    //         return <Collection collection={collection} key={collection.id}/>
-    //     })
-    //   } else {
-    //     return null
-    //   }
-    // }
-
     return (
       <div className="collection-container">
         <h5>Hello from Collection Container </h5>
