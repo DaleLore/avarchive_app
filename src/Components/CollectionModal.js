@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { modalToggle } from '../Redux/Actions/modalActions'
+import { updateCollection } from '../Redux/Actions/collectionActions'
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 
 
 class CollectionModal extends Component {
 
 state = {
-    title: "",
-    description: ""
+    id: this.props.userCollection.id,
+    collection_name: this.props.userCollection.collection_name,
+    description: this.props.userCollection.description
 }
 
   handleChange = (e) => {
@@ -17,12 +18,10 @@ state = {
     })
   }
 
-closeModal = (e) => {
-  // debugger
-  e.target.value = !e.target.value
-  let toggle = (e.target.value === 'true')
-  this.props.modalToggle({[e.target.name]: toggle})
-}
+  handleSubmit = () => {
+    this.props.updateCollection(this.state)
+    this.props.toggleForm()
+  }
 
   render() {
     console.log(this.props.userCollection)
@@ -31,10 +30,10 @@ closeModal = (e) => {
        <Form>
          <Segment>
            <Form.Field>
-           <input type="text" name="collection_name" onChange={this.handleChange} placeholder='collection_name' value={this.props.userCollection.collection_name}/>
+           <input type="text" name="collection_name" onChange={this.handleChange} placeholder='collection_name' value={this.state.collection_name}/>
            </Form.Field>
            <Form.Field>
-             <input type="text" name="description" onChange={this.handleChange} placeholder='Description' value={this.props.userCollection.description}/>
+             <input type="text" name="description" onChange={this.handleChange} placeholder='Description' value={this.state.description}/>
            </Form.Field>
            <Button name="update" value={false} color='green' type='submit' onClick={this.handleSubmit}>Update</Button>
            <Button name="nevermind" value={false} color='red' onClick={this.props.toggleForm}>Nevermind</Button>
@@ -46,9 +45,4 @@ closeModal = (e) => {
 
 }
 
-// const mapStateToProps= state => ({
-//   user: state.userInfo,
-//   userCollection: state.collectionStore.userCollection
-// });
-
-export default connect(null, {modalToggle})(CollectionModal);
+export default connect(null, {updateCollection})(CollectionModal);

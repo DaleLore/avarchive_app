@@ -12,6 +12,10 @@ export default function collectionReducer(state={}, action){
     case "ADD_COLLECTION":
       return {...state, collections: [...state.collections, action.payload]}
 
+    case "UPDATE_COLLECTION":
+    
+      return {collections: updateCollections(state.collections, action.payload), userCollection: action.payload}
+
     case "DELETE_COLLECTION":
       const collectionObject = action.payload
       const updatedCollections = state.collections.filter(collection => collection.id !== collectionObject)
@@ -24,3 +28,6 @@ export default function collectionReducer(state={}, action){
       return state;
   }
 }
+
+
+const updateCollections = (collections, updatedCollection) => collections.map(collection => collection.id === updatedCollection ? updatedCollection : collection)
