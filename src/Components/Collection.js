@@ -34,11 +34,8 @@ toggleForm = () => {
 
       <div className="side-li" id="select-collection" onClick={this.handleClick}>
         <h3>{this.props.collection.collection_name}</h3>
-
-        <Modal trigger={<Button onClick={this.toggleForm} id="update-collection">Update</Button>}
-          open={this.state.toggleForm}
-          onClose={this.toggleForm}
-        >
+        <Button onClick={this.toggleForm} id="update-collection">Update</Button>
+        <Modal open={this.state.toggleForm} >
           <Modal.Header>Update Collection</Modal.Header>
             <CollectionModal toggleForm={this.toggleForm} userCollection={this.props.collection}/>
         </Modal>
@@ -52,7 +49,6 @@ toggleForm = () => {
 const mapDispatchToProps = dispatch => {
    return {
      selectUserCollection: (collectionId) => dispatch(selectUserCollection(collectionId)),
-     // updateCollection: (collectionObject) => dispatch(updateCollection(collectionObject)),
      deleteCollection: (collectionObject) => dispatch(deleteCollection(collectionObject))
    }
 }

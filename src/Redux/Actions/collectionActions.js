@@ -35,6 +35,22 @@ export const addNewCollection = (newCollectionObject) => dispatch => {
   })
 }
 
+export const updateCollection = (collectionObj) => dispatch => {
+  let id = collectionObj.id
+  return fetch(`http://localhost:3000/collections/${id}`, {
+    method: "PATCH",
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(collectionObj)
+  })
+    .then(response => response.json())
+    .then(objectData => {
+      dispatch({ type: "UPDATE_COLLECTION", payload: objectData})
+    })
+}
+
 export const deleteCollection = (collectionObject) => dispatch => {
   let id = collectionObject.id
   return fetch(`http://localhost:3000/collections/${id}`, {
