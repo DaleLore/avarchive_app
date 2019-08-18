@@ -17,16 +17,19 @@ componentDidMount(){
 }
 
 handleSearchChange = (e) => {
-  this.setState({ searchTerm: e})
+  this.setState({
+    searchTerm: e
+  });
 }
 
 searchCollections = () => {
-  if(this.findUserCollections()) {
+  if(this.findUserCollections()){
     return this.props.collections.filter(collection => {
       return collection.collection_name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
     })
   }
 }
+
 
 findUserCollections = () => {
   if(this.props.collections){
@@ -36,8 +39,8 @@ findUserCollections = () => {
 }
 
 renderCollections = () => {
-  if(this.findUserCollections()){
-    return this.findUserCollections().map(collection => <Collection collection={collection} key={collection.id}/>)
+  if(this.searchCollections()){
+    return this.searchCollections().map(collection => <Collection collection={collection} key={collection.id}/>)
   }
 }
   render() {
@@ -47,7 +50,9 @@ renderCollections = () => {
 
 <hr/>
           <div className="collection-search">
-            <Search searchTerm={this.state.searchTerm} inputTerm={this.handleSearchChange}/>
+            <Search
+              searchTerm={this.state.searchTerm}
+              inputTerm={this.handleSearchChange}/>
           </div>
 <hr/>
           <div className="add-collection-form">
