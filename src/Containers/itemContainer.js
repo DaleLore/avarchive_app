@@ -33,7 +33,7 @@ renderItems = () => {
       <div className="item-container">
         <h5>Collection Title: {this.props.userCollection ? this.props.userCollection.collection_name : null} </h5>
         <h5>Collection Description: {this.props.userCollection ? this.props.userCollection.description : null}</h5>
-        <h5>Total Items in collection: {this.props.userCollection ? this.props.userCollection.count : null}</h5>
+        <h5>Total Items in collection: {this.props.userCollection ? this.props.userCollection.items.length : null}</h5>
         <h5>Stretch Goal: Export as CSV</h5>
 
   <hr/>
