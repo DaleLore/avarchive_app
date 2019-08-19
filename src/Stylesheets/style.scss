@@ -9,9 +9,7 @@
   }
 }
 
-// .main {
-//   background-color: red;
-// }
+
 nav{
    background-color: #eee;
    width: 100%;
@@ -29,7 +27,7 @@ nav{
 .auth-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  // align-items: center;
   width: 60%;
   height: 60%;
   margin: 5% auto;
@@ -90,7 +88,7 @@ nav{
 
   display: flex;
   flex-direction: row;
-  align-items: center;
+  // align-items: center;
   width: 100%;
   background-color: #eee;
 
@@ -113,37 +111,43 @@ nav{
 }
 //END OF WITHIN COLLECTION CONTAINER
 
+
+
 //WITHIN ITEM CONTAINER
+
+// .form-container {
+//   max-width: 100%;
+//   display: grid;
+//   justify-content: space-evenly;
+// }
+
 .add-item-form{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1vw 0;
+  // transition: 0.5s;
+  background-color: #eee;
+}
 
-    h5{
-      color: black;
-    }
+.item-header {
+  display: flex;
+  justify-content: space-evenly;
+}
 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    background-color: #eee;
-
-    input[type="text"],
-    input[type="password"] {
-      width: 30%;
-      padding: 0.5vw;
-      &:focus {
-        outline: 0;
-      }
-    }
-    input[type="submit"] {
-      margin: 1vw;
-      padding: 1vw;
-    }
+#label {
+  font-weight: bold;
 }
 //END OF WITHIN ITEM CONTAINER
 
+
+
+
 .side-li{
   background: grey;
-  text-align: center;
+  display: flex;
+  // flex-grow:
+  justify-content: space-evenly;
+  // text-align: center;
   padding: 2vw 0;
   max-width: 100%;
   transition: 0.5s;

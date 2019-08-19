@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { addNewItem } from '../Redux/Actions/itemActions'
 import { Field, reduxForm } from 'redux-form';
-
+import { Button } from 'semantic-ui-react'
 
 
 class ItemForm extends Component {
@@ -14,14 +14,14 @@ submit = (values) => {
   render() {
     // console.log(this.props.collection.id);
     return (
-      <form onSubmit={this.props.handleSubmit(this.submit)}>
+      <form className="add-item-form" onSubmit={this.props.handleSubmit(this.submit)}>
         <div>
-          <label>Title:</label>
-          <Field name="title" component="input" type="text" required/>
+          <label id="label">Title:</label>
+          <Field id="item" name="title" component="input" type="text" required/>
         </div>
         <div>
-          <label>Media Type</label>
-          <Field name="media_type" component="select" type="text" required>
+          <label id="label">Media Type</label>
+          <Field id="item" name="media_type" component="select" type="text" required>
             <option></option>
             <option value="audio"> Audio </option>
             <option value="film"> Film </option>
@@ -29,7 +29,7 @@ submit = (values) => {
           </Field>
         </div>
 
-        <button className="ui button" type="submit">Add item</button>
+        <Button id="item" type="submit">Add item</Button>
       </form>
     );
   }
