@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { updateCollection } from '../Redux/Actions/collectionActions'
-import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid,Segment } from 'semantic-ui-react'
 
 
 class CollectionModal extends Component {
