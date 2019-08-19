@@ -24,7 +24,7 @@ handleSearchChange = (e) => {
 
 searchCollections = () => {
   if(this.findUserCollections()){
-    return this.props.collections.filter(collection => {
+    return this.findUserCollections().filter(collection => {
       return collection.collection_name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
     })
   }
@@ -60,6 +60,7 @@ renderCollections = () => {
           </div>
 <hr/>
           <div className="collections">
+
             {this.renderCollections()}
           </div>
       </div>

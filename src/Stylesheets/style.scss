@@ -156,4 +156,27 @@ nav{
 }
 
 
+
+//TABLE
+#table-th {
+  width: 100%;
+  display: grid;
+}
+
+
+th {
+  // border: 1px solid #dddddd;
+  padding: 0.5vw;
+  width: 100%;
+  // display: grid;
+  // grid-template-columns: 3fr 1fr;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
 //CSS is all Mazen. Thanks Mazen
