@@ -3,27 +3,25 @@ import { connect } from 'react-redux'
 import { selectItem } from '../Redux/Actions/itemActions'
 // import { updateItem } from '../Redux/Actions/itemActions'
 import { deleteItem } from '../Redux/Actions/itemActions'
+import { Button } from 'semantic-ui-react'
+
 
 
 class Item extends Component {
 
-handleClick = (event) => {
-  console.log(event.target.id)
-  // const handleClick = () => {
-  //   if sidle
-  //   elseif
-  //   elseif
-  // end
-  // }
-}
-
   render() {
     return (
-
-      <div className="side-li" id="item">
-        {this.props.item.title} : {this.props.item.media_type}
-
-        <button id="delete-button" onClick={() => this.props.deleteItem(this.props.item)}> Delete </button>
+      <div>
+        <tr className="side-li">
+          <td>{this.props.item.title}</td>
+          <td>{this.props.item.media_type}</td>
+          <td><Button
+              id="update-button"
+              onClick={null}> Update </Button></td>
+          <td><Button
+              id="delete-button"
+              onClick={() => this.props.deleteItem(this.props.item)}> Delete </Button></td>
+        </tr>
       </div>
     );
   }

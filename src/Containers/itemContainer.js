@@ -41,9 +41,17 @@ renderItems = () => {
         {this.findCollectionItems() ? <ItemForm /> : null}
         </div>
   <hr/>
-        <div className="items">
-          {this.renderItems()}
-        </div>
+        <table className="items-table">
+          <tbody>
+            <tr>
+              <th id="table-th"><h3>Title</h3></th>
+              <th id="table-th"><h3>Media Type</h3></th>
+              <th id="table-th"><h3> </h3></th>
+              <th id="table-th"><h3> </h3></th>
+            </tr>
+          </tbody>
+        </table>
+        {this.renderItems()}
       </div>
     );
   }

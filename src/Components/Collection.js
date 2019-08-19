@@ -31,7 +31,6 @@ toggleForm = () => {
 
   render() {
     return (
-
       <div className="side-li" id="select-collection" onClick={this.handleClick}>
         <h3>{this.props.collection.collection_name}</h3>
         <Button onClick={this.toggleForm} id="update-collection">Update</Button>
