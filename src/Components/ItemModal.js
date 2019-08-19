@@ -1,50 +1,75 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-// import { updateCollection } from '../Redux/Actions/collectionActions'
-import { Field, reduxForm } from 'redux-form';
+import { updateItem } from '../Redux/Actions/itemActions'
+
+
 import { Button } from 'semantic-ui-react'
+
 
 class ItemModal extends Component {
 
   state = {
-
+    id: this.props.item.id,
+    title: this.props.item.title,
+    media_type: this.props.item.media_type
   }
 
-  render() {
-    return (
-      <form onSubmit={null}>
-        <div>
-          <label id="label">Title:</label>
-          <Field id="item" name="title" component="input" type="text" required/>
-        </div>
-        <div>
-          <label id="label">Media Type</label>
-          <Field id="item" name="media_type" component="select" type="text" required>
-            <option></option>
-            <option value="audio"> Audio </option>
-            <option value="film"> Film </option>
-            <option value="video"> Video </option>
-          </Field>
-        </div>
+handleChange = (e) => {
+  this.setState({
+    [e.target.name]: e.target.value
+  })
+}
 
-        <Button id="item" type="submit">Add item</Button>
+handleSubmit = (e) => {
+  e.preventDefault();
+  this.props.updateItem(this.state)
+  this.props.toggleForm()
+}
+  render() {
+    console.log(this.props.item);
+    return (
+      <form className="add-item-form" onSubmit={this.handleSubmit}>
+
+          <label id="label">Title:</label>
+            <input id="item"
+              name="title"
+              component="input"
+              type="text"
+              onChange={this.handleChange}
+              value={this.state.title}
+              required/>
+
+          <label id="label">Media Type</label>
+
+
+          <select
+            value={this.state.media_type}
+            className="form-control"
+            onChange={this.handleChange}>
+            <option value="audio">Audio</option>
+            <option value="film">Film</option>
+            <option value="video">Video</option>
+          </select>
+
+
+        <Button name="update" value={false} color='green' type='submit' onClick={this.handleSubmit}>Update</Button>
+        <Button name="nevermind" value={false} color='red' onClick={this.props.toggleForm}>Nevermind</Button>
       </form>
     );
   }
 }
 
-// Decorate the form component
-ItemModal = reduxForm({
-  form: 'itemForm'
-})(ItemModal);
 
-export default ItemModal;
+export default connect(null, {updateItem})(ItemModal);
 
-// <input type="hidden" name="media_type">
-// <i class="dropdown icon"></i>
-// <div class="default text">Media Type</div>
-// <div class="menu">
-//   <div class="item" value="audio">Audio</div>
-//   <div class="item" value="film">Film</div>
-//   <div class="item" value="video">Video</div>
-// </div>
+// <select
+//     name="media_type"
+//     onChange={this.handleChange}
+//     value={this.state.media_type}
+//     required>
+//
+//     <option></option>
+//     <option value="audio"> Audio </option>
+//     <option value="film"> Film </option>
+//     <option value="video"> Video </option>
+//     </select>
