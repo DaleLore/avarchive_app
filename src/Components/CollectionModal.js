@@ -7,9 +7,9 @@ import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 class CollectionModal extends Component {
 
 state = {
-    id: this.props.userCollection.id,
-    collection_name: this.props.userCollection.collection_name,
-    description: this.props.userCollection.description
+    id: this.props.collection.id,
+    collection_name: this.props.collection.collection_name,
+    description: this.props.collection.description
 }
 
   handleChange = (e) => {
@@ -24,7 +24,7 @@ state = {
   }
 
   render() {
-    console.log(this.props.userCollection)
+    console.log(this.props.collection)
     return (
       <Grid.Column textAlign='center'>
        <Form>

@@ -25,11 +25,8 @@ export const addNewItem = (itemObject) => dispatch => {
     })
 }
 
-export const selectItem = () => dispatch => {
-  console.log('i click')
-}
-
-// export const updateItem = (item) => dispatch => {
+export const updateItem = (item) => dispatch => {
+  console.log('i click');
 //   let id = item.id
 //   return fetch(`http://localhost:3000/items/${id}`, {
 //     method: "PATCH",
@@ -43,7 +40,7 @@ export const selectItem = () => dispatch => {
 //     .then(itemData => {
 //       dispatch({type: "UPDATE_ITEM", payload: itemData})
 //     })
-// }
+}
 
 export const deleteItem = (item) => dispatch => {
   let id = item.id
