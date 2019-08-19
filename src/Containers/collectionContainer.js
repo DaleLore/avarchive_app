@@ -46,7 +46,9 @@ renderCollections = () => {
   render() {
     return (
       <div className="collection-container">
-        <h5>Hello from Collection Container </h5>
+
+            <h5>View Collections</h5>
+
 
 <hr/>
           <div className="collection-search">

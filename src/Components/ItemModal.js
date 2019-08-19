@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { addNewItem } from '../Redux/Actions/itemActions'
+// import { updateCollection } from '../Redux/Actions/collectionActions'
 import { Field, reduxForm } from 'redux-form';
 import { Button } from 'semantic-ui-react'
 
+class ItemModal extends Component {
 
-class ItemForm extends Component {
+  state = {
 
-submit = (values) => {
-  let collectionId = this.props.collection.id
-  this.props.addNewItem({values, collectionId})
-}
+  }
+
   render() {
-    // console.log(this.props.collection.id);
     return (
-      <form className="add-item-form" onSubmit={this.props.handleSubmit(this.submit)}>
+      <form onSubmit={null}>
         <div>
           <label id="label">Title:</label>
           <Field id="item" name="title" component="input" type="text" required/>
@@ -36,13 +34,17 @@ submit = (values) => {
 }
 
 // Decorate the form component
-ItemForm = reduxForm({
+ItemModal = reduxForm({
   form: 'itemForm'
-})(ItemForm);
+})(ItemModal);
 
-const mapStateToProps= state => ({
-    collection: state.collectionStore.userCollection
-});
+export default ItemModal;
 
-
-export default connect(mapStateToProps, {addNewItem})(ItemForm);
+// <input type="hidden" name="media_type">
+// <i class="dropdown icon"></i>
+// <div class="default text">Media Type</div>
+// <div class="menu">
+//   <div class="item" value="audio">Audio</div>
+//   <div class="item" value="film">Film</div>
+//   <div class="item" value="video">Video</div>
+// </div>

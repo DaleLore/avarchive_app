@@ -11,17 +11,16 @@ class Item extends Component {
 
   render() {
     return (
-      <div>
-        <tr className="side-li">
-          <td>{this.props.item.title}</td>
-          <td>{this.props.item.media_type}</td>
-          <td><Button
+      <div className="side-li">
+          <span>{this.props.item.title}</span>
+          <span>{this.props.item.media_type}</span>
+          <span><Button
               id="update-button"
-              onClick={null}> Update </Button></td>
-          <td><Button
+              onClick={null}> Update </Button></span>
+          <span><Button
               id="delete-button"
-              onClick={() => this.props.deleteItem(this.props.item)}> Delete </Button></td>
-        </tr>
+              onClick={() => this.props.deleteItem(this.props.item)}> Delete </Button></span>
+
       </div>
     );
   }

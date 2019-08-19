@@ -33,24 +33,21 @@ renderItems = () => {
       <div className="item-container">
         <h5>Collection Title: {this.props.userCollection ? this.props.userCollection.collection_name : null} </h5>
         <h5>Collection Description: {this.props.userCollection ? this.props.userCollection.description : null}</h5>
-        <h5>Total Items in collection: {this.props.userCollection ? this.props.userCollection.count : null}</h5>
+        <h5>Total Items in collection: {this.props.userCollection ? this.props.userCollection.items.length : null}</h5>
         <h5>Stretch Goal: Export as CSV</h5>
 
   <hr/>
-        <div className="add-item-form">
+        <div className="form-container">
         {this.findCollectionItems() ? <ItemForm /> : null}
         </div>
   <hr/>
-        <table className="items-table">
-          <tbody>
-            <tr>
-              <th id="table-th"><h3>Title</h3></th>
-              <th id="table-th"><h3>Media Type</h3></th>
-              <th id="table-th"><h3> </h3></th>
-              <th id="table-th"><h3> </h3></th>
-            </tr>
-          </tbody>
-        </table>
+        <div className="item-header">
+              <span><h3>Title</h3></span>
+              <span><h3>Media Type</h3></span>
+              <span><h3> </h3></span>
+              <span><h3> </h3></span>
+        </div>
+
         {this.renderItems()}
       </div>
     );
