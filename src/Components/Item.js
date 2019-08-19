@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ItemModal from './ItemModal'
 import { connect } from 'react-redux'
 import { deleteItem } from '../Redux/Actions/itemActions'
-import { Button, Header, Image, Modal } from 'semantic-ui-react'
+import { Button, Modal } from 'semantic-ui-react'
 
 
 class Item extends Component {

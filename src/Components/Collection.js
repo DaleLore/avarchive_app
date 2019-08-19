@@ -3,7 +3,7 @@ import CollectionModal from './CollectionModal'
 import { connect } from 'react-redux'
 import { selectUserCollection } from '../Redux/Actions/collectionActions'
 import { deleteCollection } from '../Redux/Actions/collectionActions'
-import { Button, Header, Image, Modal } from 'semantic-ui-react'
+import { Button, Modal } from 'semantic-ui-react'
 
 class Collection extends Component {
 
