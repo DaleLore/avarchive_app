@@ -25,21 +25,20 @@ export const addNewItem = (itemObject) => dispatch => {
     })
 }
 
-export const updateItem = (item) => dispatch => {
-  console.log('i click');
-//   let id = item.id
-//   return fetch(`http://localhost:3000/items/${id}`, {
-//     method: "PATCH",
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'Accept': 'application/json'
-//     },
-//     body: JSON.stringify(item)
-//   })
-//     .then(response => response.json())
-//     .then(itemData => {
-//       dispatch({type: "UPDATE_ITEM", payload: itemData})
-//     })
+export const updateItem = (itemObj) => dispatch => {
+  let id = itemObj.id
+  return fetch(`http://localhost:3000/items/${id}`, {
+    method: "PATCH",
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(itemObj)
+  })
+    .then(response => response.json())
+    .then(itemData => {
+      dispatch({type: "UPDATE_ITEM", payload: itemData})
+    })
 }
 
 export const deleteItem = (item) => dispatch => {
