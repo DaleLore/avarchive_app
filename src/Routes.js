@@ -9,8 +9,8 @@ const Routes = (props) => {
       <Route path="/login" component={Pages.Login} />
       <Route path="/signup" component={Pages.Signup} />
       <Route path="/profile" component={Pages.Profile} />
+      <Route path="/csv" component={Pages.Csv} />
       <Route exact path="/" render={(routerProps) => <Pages.Home />} />
-
     </Switch>
   );
 };
