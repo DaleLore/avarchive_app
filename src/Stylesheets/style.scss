@@ -24,32 +24,7 @@ nav{
 }
 
 
-.auth-form {
-  display: flex;
-  flex-direction: column;
-  // align-items: center;
-  width: 60%;
-  height: 60%;
-  margin: 5% auto;
-  border-radius: 40px;
-  background-color: #eee;
-  padding: 2vw;
 
-  input[type="text"],
-  input[type="password"] {
-    width: 80%;
-    padding: 1vw;
-    margin: 1vw;
-    border: 0;
-    &:focus {
-      outline: 0;
-    }
-  }
-  input[type="submit"] {
-    margin: 1vw;
-    padding: 1vw;
-  }
-}
 
 //WITHIN PROFILE
 .page-container {
@@ -162,24 +137,17 @@ nav{
 
 
 //TABLE
-#table-th {
+#table {
   width: 100%;
-  display: grid;
+  display: fliex;
 }
 
 
-th {
-  // border: 1px solid #dddddd;
+th, tr {
+  border: 1px solid #dddddd;
   padding: 0.5vw;
-  width: 100%;
-  // display: grid;
-  // grid-template-columns: 3fr 1fr;
   text-align: left;
   padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
 }
 
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { userSignUp } from '../Redux/Actions/userActions'
-
+import '../Stylesheets/auth.scss'
 
 class Signup extends Component {
 
@@ -25,7 +25,7 @@ class Signup extends Component {
   render() {
     return (
       <form className="auth-form" onSubmit={this.handleSubmit}>
-        <h5>Hello from Signup.js</h5>
+        <h5>Signup</h5>
           <input
             type="text"
             name="username"
