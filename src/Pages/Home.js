@@ -17,25 +17,16 @@ class Home extends Component {
       id: 'default'
   }
 
-  // handleClick = (e) => {
-  //   this.setState({ show: !this.state.show })
-  // }
   handleClick = (e) => {
     if(e.target.id === 'step1'){
-      console.log('step1')
       this.setState({ id: e.target.id })
-
     } else if (e.target.id === 'step2'){
-      console.log('step2')
       this.setState({ id: e.target.id })
     } else if (e.target.id === 'step3'){
-      console.log('step3')
       this.setState({ id: e.target.id })
     } else if (e.target.id === 'step4'){
-      console.log('step4')
       this.setState({ id: e.target.id })
     } else if (e.target.id === 'avItems'){
-      console.log('avItems')
       this.setState({ id: e.target.id })
     }
   }
