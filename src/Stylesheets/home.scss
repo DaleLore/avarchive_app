@@ -16,7 +16,7 @@
   padding: 2vw 0;
   width: 98%;
   transition: 0.5s;
-  border-bottom: 1px solid #262626;
+  border: 1px solid black;
   cursor: pointer;
   &:hover {
     background-color: #ec62c3;
@@ -26,6 +26,5 @@
 }
 
 .information {
-  background: eeee;
-  border: 1px solid grey;
+  background: #eeee;
 }
