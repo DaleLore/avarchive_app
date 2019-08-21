@@ -1,9 +1,13 @@
 #instruction-header{
   color: #f49731;
-  text-align: left;
+  text-align: center;
+  margin-top: 20px;
   margin-left: 20px;
+  font-family: Arial; 
 }
 
-p {
-  margin-left: 20px;
+p, #instruction-li {
+  margin-left: 30px;
+  margin-right: 30px;
+  text-align: justify;
 }
