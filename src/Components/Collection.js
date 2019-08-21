@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import CollectionModal from './CollectionModal'
+import { Modal } from 'semantic-ui-react'
+import '../Stylesheets/collectionContainer.scss'
+
 import { connect } from 'react-redux'
 import { selectUserCollection } from '../Redux/Actions/collectionActions'
 import { deleteCollection } from '../Redux/Actions/collectionActions'
-import { Button, Modal } from 'semantic-ui-react'
 
 class Collection extends Component {
 
@@ -28,18 +30,18 @@ toggleForm = () => {
 
   render() {
     return (
-      <div className="side-li" id="select-collection" onClick={this.handleClick}>
+      <div className="collection-li" id="select-collection" onClick={this.handleClick}>
         <h3>{this.props.collection.collection_name}</h3>
-        <Button
+        <button
           id="update-collection"
-          onClick={this.toggleForm}> Update </Button>
+          onClick={this.toggleForm}> Update </button>
 
         <Modal open={this.state.toggleForm} >
           <Modal.Header>Update Collection</Modal.Header>
             <CollectionModal toggleForm={this.toggleForm} collection={this.props.collection}/>
         </Modal>
 
-        <Button id="delete-collection" > X </Button>
+        <button id="delete-collection" > X </button>
       </div>
     )
   }

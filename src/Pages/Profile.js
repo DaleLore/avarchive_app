@@ -20,15 +20,13 @@ class Profile extends Component {
     return (
       <div className="profile">
         <h1>Welcome, {this.props.profile.username}!</h1>
-        <h5>Hello from Profile.js</h5>
-
         <div className="page-container">
 
-          <div className="side-panel">
+          <div className="collection-container">
             <CollectionContainer />
           </div>
 
-          <div className="show-panel">
+          <div className="item-container">
             <ItemContainer />
           </div>
 

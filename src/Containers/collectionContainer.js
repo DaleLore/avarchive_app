@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Search from '../Components/Search'
 import CollectionForm from '../Components/CollectionForm'
 import Collection from '../Components/Collection'
+import '../Stylesheets/collectionContainer.scss'
 
 import { connect } from 'react-redux'
 import { fetchCollections } from '../Redux/Actions/collectionActions'
@@ -30,7 +31,6 @@ searchCollections = () => {
   }
 }
 
-
 findUserCollections = () => {
   if(this.props.collections){
     const userId = this.props.user.id
@@ -43,11 +43,11 @@ renderCollections = () => {
     return this.searchCollections().map(collection => <Collection collection={collection} key={collection.id}/>)
   }
 }
-  render() {
-    return (
-      <div className="collection-container">
 
-            <h5>View Collections</h5>
+render() {
+  return (
+      <div className="collection-container">
+        <h3>View Collections</h3>
 
 
 <hr/>
@@ -57,15 +57,15 @@ renderCollections = () => {
               inputTerm={this.handleSearchChange}/>
           </div>
 <hr/>
-          <div className="add-collection-form">
+          <div className="add-collection">
+            <h5>Create a new collection</h5>
             <CollectionForm />
           </div>
 <hr/>
           <div className="collections">
-
             {this.renderCollections()}
           </div>
-      </div>
+     </div>
     );
   }
 }

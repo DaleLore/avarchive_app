@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { addNewCollection } from '../Redux/Actions/collectionActions'
-import { Button } from 'semantic-ui-react'
+
+import '../Stylesheets/collectionContainer.scss'
 
 class CollectionForm extends Component {
 
@@ -26,25 +27,28 @@ handleSubmit = (e) => {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <center><h5>Create a new collection</h5></center>
-          <input
-            type="text"
-            name="collection_name"
-            placeholder="Collection Name"
-            value={this.state.collection_name}
-            onChange={this.handleChange}
-            required/>
+      <div>
 
-          <textarea
-            name="description"
-            placeholder="Description"
-            value={this.state.description}
-            onChange={this.handleChange}/>
+        <form
+          className="collection-form"
+          onSubmit={this.handleSubmit}>
+          <div><input
+              type="text"
+              name="collection_name"
+              placeholder="Collection Name"
+              value={this.state.collection_name}
+              onChange={this.handleChange}
+              required/></div>
 
-          <Button>Create</Button>
-      </form>
+            <div><textarea
+              name="description"
+              placeholder="Description"
+              value={this.state.description}
+              onChange={this.handleChange}/></div>
 
+            <div id="create-button"><button>Create</button></div>
+        </form>
+      </div>
     );
   }
 }

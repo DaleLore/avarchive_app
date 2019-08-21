@@ -13,7 +13,8 @@
 
 #title {
   font-size: 45px;
-  margin-left: 34%;
+  width: 100%;
+  text-align: center;
 }
 
 nav{
@@ -31,76 +32,26 @@ nav{
 
 
 
-
+h5 {
+  margin: 0;
+  margin-bottom: 5px;
+}
 //WITHIN PROFILE
 .page-container {
   display: grid;
-  grid-template-columns: 3fr 5fr;
+  grid-template-columns: 2fr 5fr;
   border: 1px solid black;
   padding: 1vw;
 }
 
-.side-panel {
-  border: 1px solid darkgrey;
-  background: darkgrey;
-}
 
-.show-panel{
+
+.item-container{
   border: 1px solid grey;
   background: grey;
 }
-//END OF WITHIN PROFILE
 
 
-//WITHIN COLLECTION CONTAINER
-.collection-container {
-
-}
-
-.collection-search {
-
-}
-
-.add-collection-form{
-
-  h5{
-    color: black;
-  }
-
-  display: flex;
-  flex-direction: row;
-  // align-items: center;
-  width: 100%;
-  background-color: #eee;
-
-  input[type="text"],
-  input[type="password"] {
-    width: 30%;
-    padding: 0.5vw;
-    &:focus {
-      outline: 0;
-    }
-  }
-  input[type="submit"] {
-    margin: 1vw;
-    padding: 1vw;
-  }
-}
-
-.collections {
-
-}
-//END OF WITHIN COLLECTION CONTAINER
-
-
-
-//WITHIN ITEM CONTAINER
-
-// .form-container {
-//   max-width: 100%;
-//   display: grid;
-//   justify-content: space-evenly;
-// }
 
 .add-item-form{
   display: flex;
@@ -118,43 +69,7 @@ nav{
 #label {
   font-weight: bold;
 }
-//END OF WITHIN ITEM CONTAINER
 
-
-
-
-.side-li{
-  background: grey;
-  display: flex;
-  // flex-grow:
-  justify-content: space-evenly;
-  // text-align: center;
-  padding: 2vw 0;
-  max-width: 100%;
-  transition: 0.5s;
-  border-bottom: 1px solid #262626;
-  cursor: pointer;
-  &:hover {
-    background-color: #262626;
-    color: white;
-  }
-}
-
-
-
-//TABLE
-#table {
-  width: 100%;
-  display: fliex;
-}
-
-
-th, tr {
-  border: 1px solid #dddddd;
-  padding: 0.5vw;
-  text-align: left;
-  padding: 8px;
-}
 
 
 //CSS is all Mazen. Thanks Mazen

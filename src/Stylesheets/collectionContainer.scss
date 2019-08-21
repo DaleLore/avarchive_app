@@ -1,0 +1,45 @@
+.collection-container {
+  border: 1px solid darkgrey;
+  background: grey;
+  h3 {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+}
+
+.add-collection{
+  background: #eeee;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  h5 {
+    padding-top: 10px;
+    padding-left: 10px;
+    align-content: center;
+  }
+}
+.collection-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-evenly;
+  background: #eeee;
+  margin: 5px;
+  padding-left: 0;
+  display: grid;
+}
+
+.collection-li {
+  background: grey;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  justify-content: space-evenly;
+  padding: 2vw 0;
+  max-width: 100%;
+  transition: 0.5s;
+  border-bottom: 1px solid #262626;
+  cursor: pointer;
+  &:hover {
+    background-color: #262626;
+    color: white;
+  }
+}

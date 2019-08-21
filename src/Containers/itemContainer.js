@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-// import Search from '../Components/Search'
+import '../Stylesheets/itemContainer.scss'
+
 import ItemForm from '../Components/ItemForm'
 import Item from '../Components/Item'
 
@@ -31,10 +32,12 @@ renderItems = () => {
   render() {
     return (
       <div className="item-container">
-        <h5>Collection Title: {this.props.userCollection ? this.props.userCollection.collection_name : null} </h5>
-        <h5>Collection Description: {this.props.userCollection ? this.props.userCollection.description : null}</h5>
-        <h5>Total Items in collection: {this.props.userCollection ? this.props.userCollection.items.length : null}</h5>
-        <h5>Stretch Goal: Export as CSV</h5>
+        <div><h5>Click on a collection to view items</h5></div>
+  <hr/>
+        <div className="collection-deets">
+          <h5>Collection Title: {this.props.userCollection ? this.props.userCollection.collection_name : null} </h5>
+          <h5>Collection Description: {this.props.userCollection ? this.props.userCollection.description : null}</h5>
+        </div>
 
   <hr/>
         <div className="form-container">
@@ -63,3 +66,5 @@ const mapStateToProps= state => ({
 });
 
 export default connect(mapStateToProps, {fetchItems, fetchCollections})(ItemContainer);
+
+// <h5>Total Items in collection: {this.props.userCollection ? this.props.userCollection.items.length : null}</h5>
