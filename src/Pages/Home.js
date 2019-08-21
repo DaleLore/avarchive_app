@@ -1,13 +1,15 @@
-import React from "react";
+import React, { Component } from 'react';
 
+class Home extends Component {
 
-const Home = props => {
-  return (
-    <div className="home">
-      <h5>Hello from Home.js </h5>
-      <p>which is really only the About section</p>
-    </div>
-  );
-};
+  render() {
+    return (
+      <div>
+        
+      </div>
+    );
+  }
+
+}
 
 export default Home;
