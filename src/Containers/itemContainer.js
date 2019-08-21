@@ -31,8 +31,10 @@ renderItems = () => {
 
   render() {
     return (
-      <div className="item-container">
-        <div><h5>Click on a collection to view items</h5></div>
+      <div id="item-container">
+
+          <h3>Click on a collection to view items</h3>
+
   <hr/>
         <div className="collection-deets">
           <h5>Collection Title: {this.props.userCollection ? this.props.userCollection.collection_name : null} </h5>
@@ -41,14 +43,15 @@ renderItems = () => {
 
   <hr/>
         <div className="form-container">
-        {this.findCollectionItems() ? <ItemForm /> : null}
+          
+          {this.findCollectionItems() ? <ItemForm /> : null}
         </div>
   <hr/>
         <div className="item-header">
-              <span><h3>Title</h3></span>
-              <span><h3>Media Type</h3></span>
-              <span><h3> </h3></span>
-              <span><h3> </h3></span>
+              <h3>Title</h3>
+              <h3>Media Type</h3>
+              <h3> </h3>
+              <h3> </h3>
         </div>
 
         {this.renderItems()}

@@ -18,6 +18,7 @@
     align-content: center;
   }
 }
+
 .collection-form {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -25,7 +26,6 @@
   background: #eeee;
   margin: 5px;
   padding-left: 0;
-  display: grid;
 }
 
 .collection-li {
@@ -41,5 +41,9 @@
   &:hover {
     background-color: #262626;
     color: white;
+  }
+  h3 {
+    margin: 0;
+    margin-left: 5px;
   }
 }

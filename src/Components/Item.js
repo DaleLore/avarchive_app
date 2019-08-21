@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ItemModal from './ItemModal'
 import { connect } from 'react-redux'
 import { deleteItem } from '../Redux/Actions/itemActions'
-import { Button, Modal } from 'semantic-ui-react'
+import { Modal } from 'semantic-ui-react'
 
 
 class Item extends Component {
@@ -20,20 +20,20 @@ class Item extends Component {
   render() {
 
     return (
-      <div className="side-li">
-          <span>{this.props.item.title}</span>
-          <span>{this.props.item.media_type}</span>
-          <Button
+      <div className="item-li">
+          <span id="item-title">{this.props.item.title}</span>
+          <span id="item-media">{this.props.item.media_type}</span>
+          <button
               id="update-item"
-              onClick={this.toggleForm}> Update </Button>
+              onClick={this.toggleForm}> Update </button>
 
           <Modal open={this.state.toggleForm} >
             <Modal.Header>Update Item</Modal.Header>
             <ItemModal toggleForm={this.toggleForm} item={this.props.item}/>
           </Modal>
-          <Button
+          <button
               id="delete-button"
-              onClick={() => this.props.deleteItem(this.props.item)}> Delete </Button>
+              onClick={() => this.props.deleteItem(this.props.item)}> Delete </button>
 
       </div>
     );
