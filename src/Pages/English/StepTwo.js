@@ -1,6 +1,7 @@
 import React from "react";
 import '../../Stylesheets/instructions.scss'
 
+
 const StepTwo = props => {
   console.log('i here now');
   return (

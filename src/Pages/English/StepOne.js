@@ -2,7 +2,7 @@ import React from "react";
 import '../../Stylesheets/instructions.scss'
 
 const StepOne = props => {
-  console.log('i here now');
+
   return (
     <div className="steps">
       <h1 id="instruction-header">Set out your archive's mission and objectives</h1>
