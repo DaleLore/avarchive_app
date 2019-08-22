@@ -14,17 +14,26 @@ submit = (values) => {
   render() {
     return (
       <form className="item-form" onSubmit={this.props.handleSubmit(this.submit)}>
-        <h5>Click on a collection to add a new item</h5>
+        <h5>Add a new item</h5>
         <div id="item-form">
           <label id="label">Title:</label>
-          <Field id="item" name="title" component="input" type="text" required/>
+          <Field
+              id="item"
+              name="title"
+              component="input"
+              type="text"
+              placeholder="Item Title"
+              required/>
 
           <label id="label">Media Type</label>
           <Field id="item" name="media_type" component="select" type="text" required>
             <option></option>
             <option value="audio"> Audio </option>
+            <option value="digital"> Digital </option>
             <option value="film"> Film </option>
+            <option value="video"> Photograph </option>
             <option value="video"> Video </option>
+
           </Field>
           <button id="create-item" type="submit">Add item</button>
         </div>

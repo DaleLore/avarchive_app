@@ -4,7 +4,7 @@ import '../../Stylesheets/instructions.scss'
 const StepFour = props => {
   return (
     <div className="steps">
-      <h1 id="instruction-header">Step 4: Start Collecting</h1>
+      <h1 id="instruction-header">step 4: start collecting</h1>
       <ol>
         <li id="instruction-li"> Be transparent, share your goals, grant details, process, etc with your community.</li>
         <li id="instruction-li"> Decentralize information. Don't replicate the same structures that excluded your community in the first place.</li>

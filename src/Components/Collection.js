@@ -32,16 +32,16 @@ toggleForm = () => {
     return (
       <div className="collection-li" id="select-collection" onClick={this.handleClick}>
         <h3>{this.props.collection.collection_name}</h3>
-        <button
+        <div><button
           id="update-collection"
-          onClick={this.toggleForm}> Update </button>
+          onClick={this.toggleForm}> Update </button></div>
 
         <Modal open={this.state.toggleForm} >
           <Modal.Header>Update Collection</Modal.Header>
             <CollectionModal toggleForm={this.toggleForm} collection={this.props.collection}/>
         </Modal>
 
-        <button id="delete-collection" > X </button>
+        <div><button id="delete-collection" > X </button></div>
       </div>
     )
   }

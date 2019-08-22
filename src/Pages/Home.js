@@ -38,23 +38,23 @@ class Home extends Component {
           <li
             id="step1"
             className="menu-item"
-            onClick={this.handleClick}> Step One</li >
+            onClick={this.handleClick}> STEP ONE</li >
           <li
             id="step2"
             className="menu-item"
-            onClick={this.handleClick}> Step Two</li >
+            onClick={this.handleClick}> STEP TWO</li >
           <li
             id="step3"
             className="menu-item"
-            onClick={this.handleClick}> Step Three</li>
+            onClick={this.handleClick}> STEP THREE</li>
           <li
             id="step4"
             className="menu-item"
-            onClick={this.handleClick}> Step Four</li>
+            onClick={this.handleClick}> STEP FOUR</li>
           <li
             id="avItems"
             className="menu-item"
-            onClick={this.handleClick}> AV Items</li>
+            onClick={this.handleClick}> AV ITEMS</li>
         </div>
 
         <div className="information">

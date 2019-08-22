@@ -5,7 +5,7 @@ const StepOne = props => {
 
   return (
     <div className="steps">
-      <h1 id="instruction-header">Step 1: Set out your archive's mission and objectives</h1>
+      <h1 id="instruction-header">step 1: set out your archive's mission and objectives</h1>
       <ol>
       <li id="instruction-li">Whose stories do you want to preserve and/or amplify?</li>
       <li id="instruction-li">Decide on what kind of formats you want/can save</li>
