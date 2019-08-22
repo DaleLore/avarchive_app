@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { addNewItem } from '../Redux/Actions/itemActions'
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, reset } from 'redux-form';
 
 
 
 class ItemForm extends Component {
 
+
 submit = (values) => {
   let collectionId = this.props.collection.id
   this.props.addNewItem({values, collectionId})
+  this.props.reset()
 }
   render() {
     return (
