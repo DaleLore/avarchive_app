@@ -11,6 +11,17 @@ state={
   description: "",
 }
 
+initialState = () => {
+  const initialState = {
+    collection_name: "",
+    description: ""
+  }
+  return initialState
+}
+
+resetState = () => {
+  this.setState(this.initialState())
+}
 
 handleChange = (e) => {
   this.setState({
@@ -23,6 +34,7 @@ handleSubmit = (e) => {
   let newUser = this.state
   let userId = this.props.profile.id
   this.props.addNewCollection({newUser, userId})
+  this.resetState()
 }
 
   render() {
